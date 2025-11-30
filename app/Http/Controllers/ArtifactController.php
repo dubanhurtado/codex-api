@@ -30,11 +30,11 @@ class ArtifactController extends Controller
 
         $manuscript = $data['manuscript'];
 
-        // 2. Generar Huella Digital (Hash) para unicidad
+        // 2. pasamos el manuscritop por un has para verificar que es unico y que no lo tenemos ya
         // Serializamos el array y creamos un hash SHA-256
         $hash = hash('sha256', json_encode($manuscript));
 
-        // 3. Verificamos si ya existe en BD (Caché de persistencia)
+        // 3. Verificamos si ya existe en BD 
         $existing = Manuscript::where('dna_hash', $hash)->first();
 
         if ($existing) {
@@ -43,8 +43,8 @@ class ArtifactController extends Controller
             // 4. Si no existe, usamos el Servicio de Elowen (Algoritmo)
             $hasClue = $this->hunterService->containsArtifactClue($manuscript);
 
-            // 5. Guardamos el resultado asíncronamente (Optimización)
-            // Usamos create quiet para no disparar eventos innecesarios por ahora
+            // 5. Guardamos el resultado en BAse de datois
+
             Manuscript::create([
                 'dna_hash' => $hash,
                 'content' => $manuscript,
@@ -56,7 +56,7 @@ class ArtifactController extends Controller
         // Pista encontrada -> 200 OK
         // No encontrada -> 403 Forbidden
         return response()->json(
-            ['has_clue' => $hasClue], // Retornamos body opcional informativo
+            ['has_clue' => $hasClue], 
             $hasClue ? 200 : 403
         );
     }
