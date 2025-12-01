@@ -17,6 +17,10 @@ Sistema de análisis de manuscritos antiguos para la los guardianes de la luz y 
 **POST** `/api/clue`
 Busca secuencias de 4 letras idénticas (Horizontal, Vertical, Diagonal).
 
+### 2. Analisis de resultados
+**GET** `/api/stats`
+devuelve de la base de datos los manuscritos analizados y los resultados
+
 ## 🚀 Tecnologías
 
 ### 200 OK: {"has_clue": true} (Pista encontrada)
