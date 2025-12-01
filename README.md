@@ -17,21 +17,7 @@ Sistema de análisis de manuscritos antiguos para la los guardianes de la luz y 
 **POST** `/api/clue`
 Busca secuencias de 4 letras idénticas (Horizontal, Vertical, Diagonal).
 
-**Body (JSON):**
-```json
-{
-  "manuscript": [
-    "RTHGQW",
-    "XRLORE",
-    "NARURR",
-    "REVRAL",
-    "EGSILE",
-    "BRINDS"
-  ]
-}
-
-
-Respuesta:
+## 🚀 Tecnologías
 
 ### 200 OK: {"has_clue": true} (Pista encontrada)
 
@@ -54,3 +40,19 @@ Para garantizar la escalabilidad requerida por Elowen, se sometió la API a una 
 
 
 Desarrollado por Duban Andrey Hurtado Monsalve. 
+
+
+**Body (JSON):**
+```json
+{
+  "manuscript": [
+    "RTHGQW",
+    "XRLORE",
+    "NARURR",
+    "REVRAL",
+    "EGSILE",
+    "BRINDS"
+  ]
+}
+
+
